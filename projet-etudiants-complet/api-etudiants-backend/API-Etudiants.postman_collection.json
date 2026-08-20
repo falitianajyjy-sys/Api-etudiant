@@ -1,0 +1,88 @@
+{
+  "info": {
+    "name": "API Etudiants",
+    "description": "Collection de test CRUD pour l'API REST /etudiants (TypeScript + Express)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000" }
+  ],
+  "item": [
+    {
+      "name": "1. GET - Lister tous les étudiants",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/etudiants"
+      }
+    },
+    {
+      "name": "2. GET - Lire un étudiant précis",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/etudiants/1"
+      }
+    },
+    {
+      "name": "3. POST - Créer un étudiant",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nom\": \"Randria\",\n  \"prenom\": \"Sofia\",\n  \"email\": \"sofia.randria@example.mg\",\n  \"age\": 22\n}"
+        },
+        "url": "{{baseUrl}}/etudiants"
+      }
+    },
+    {
+      "name": "4. PUT - Modifier un étudiant (complet)",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nom\": \"Rakoto\",\n  \"prenom\": \"Jean\",\n  \"email\": \"jean.rakoto2@example.mg\",\n  \"age\": 22\n}"
+        },
+        "url": "{{baseUrl}}/etudiants/1"
+      }
+    },
+    {
+      "name": "5. PATCH - Modifier un étudiant (partiel)",
+      "request": {
+        "method": "PATCH",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"age\": 24\n}"
+        },
+        "url": "{{baseUrl}}/etudiants/2"
+      }
+    },
+    {
+      "name": "6. DELETE - Supprimer un étudiant",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/etudiants/2"
+      }
+    },
+    {
+      "name": "7. GET - Erreur 404 (id inexistant)",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/etudiants/999"
+      }
+    },
+    {
+      "name": "8. POST - Erreur 400 (données invalides)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nom\": \"Test\"\n}"
+        },
+        "url": "{{baseUrl}}/etudiants"
+      }
+    }
+  ]
+}
